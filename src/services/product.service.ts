@@ -1,9 +1,6 @@
-/**
- * Product Service
- * Business logic for product management
- */
-
+import mongoose from 'mongoose';
 import Product, { IProduct } from '../models/product.model';
+import Category from '../models/category.model';
 
 interface PaginationResult {
   products: IProduct[];
@@ -20,7 +17,29 @@ interface MessageResponse {
 }
 
 class ProductService {
-  static async createProduct(productData: Partial<IProduct>): Promise<IProduct | null> {
+  private static async resolveCategory(categoryRef: any): Promise<mongoose.Types.ObjectId | null> {
+    if (!categoryRef) return null;
+
+    // Check if it's already a valid MongoDB ObjectId
+    if (mongoose.isValidObjectId(categoryRef)) {
+      return categoryRef as any;
+    }
+
+    // Try finding by category_id (numeric) or name
+    const query = isNaN(Number(categoryRef))
+      ? { name: categoryRef }
+      : { category_id: Number(categoryRef) };
+
+    const category = await Category.findOne(query);
+    return category ? (category._id as any) : null;
+  }
+
+  static async createProduct(productData: any): Promise<IProduct | null> {
+    const categoryId = await this.resolveCategory(productData.category);
+    if (categoryId) {
+      productData.category = categoryId;
+    }
+
     const product = new Product(productData);
     await product.save();
     return product.populate('category');
@@ -48,7 +67,14 @@ class ProductService {
     };
   }
 
-  static async updateProduct(productId: string, updateData: Partial<IProduct>): Promise<IProduct | null> {
+  static async updateProduct(productId: string, updateData: any): Promise<IProduct | null> {
+    if (updateData.category) {
+      const categoryId = await this.resolveCategory(updateData.category);
+      if (categoryId) {
+        updateData.category = categoryId;
+      }
+    }
+
     const product = await Product.findByIdAndUpdate(productId, updateData, { new: true }).populate('category');
     if (!product) {
       throw new Error('Product not found');

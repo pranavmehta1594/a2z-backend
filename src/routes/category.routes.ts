@@ -14,6 +14,6 @@ router.post('/', authMiddleware, roleMiddleware(ROLES.ADMIN), CategoryController
 router.get('/', CategoryController.getAllCategories);
 router.get('/:id', CategoryController.getCategoryById);
 router.put('/:id', authMiddleware, roleMiddleware(ROLES.ADMIN), CategoryController.updateCategory);
-router.delete(':id', authMiddleware, roleMiddleware(ROLES.ADMIN), CategoryController.deleteCategory);
+router.delete('/:id', authMiddleware, roleMiddleware(ROLES.ADMIN), CategoryController.deleteCategory);
 
 export default router;

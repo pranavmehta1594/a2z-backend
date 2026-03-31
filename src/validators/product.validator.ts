@@ -18,7 +18,7 @@ export const createProductValidator = Joi.object({
     'any.required': 'Category is required',
   }),
   image: Joi.string(),
-  stock: Joi.number().min(0).required(),
+  stock: Joi.number().min(0).optional(),
 });
 
 export const updateProductValidator = Joi.object({
@@ -28,5 +28,5 @@ export const updateProductValidator = Joi.object({
   discount: Joi.number().min(0).max(100),
   category: Joi.string(),
   image: Joi.string(),
-  stock: Joi.number().min(0),
+  stock: Joi.number().min(0).optional(),
 });

@@ -12,7 +12,6 @@ export interface ICategory extends Document {
   isActive: boolean;
   createdAt: Date;
   updatedAt: Date;
-  price: string;
 }
 
 const categorySchema = new Schema<ICategory>(
@@ -36,11 +35,7 @@ const categorySchema = new Schema<ICategory>(
       type: Boolean,
       default: true,
     },
-    price:{
-        type: String,
-        required:true,
-        default:'0'
-    }
+  
   },
   { timestamps: true }
 );

@@ -17,8 +17,20 @@ import orderRoutes from './routes/order.routes';
 
 const app = express();
 
+// Parse CORS origins from env (can be comma-separated)
+const corsOrigins = (config.CORS_ORIGIN || 'http://localhost:8080')
+  .split(',')
+  .map((origin) => origin.trim());
+
 // Middleware
-app.use(cors({ origin: config.CORS_ORIGIN }));
+app.use(
+  cors({
+    origin: corsOrigins,
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  })
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('combined'));

@@ -1,0 +1,10 @@
+{
+  "watch": ["src"],
+  "ext": "ts",
+  "ignore": ["node_modules", "dist", "tests"],
+  "delay": 500,
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "exec": "ts-node src/server.ts"
+}

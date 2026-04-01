@@ -18,6 +18,7 @@ export const createProductValidator = Joi.object({
     'any.required': 'Category is required',
   }),
   image: Joi.string(),
+  images: Joi.array().items(Joi.string()),
   stock: Joi.number().min(0).optional(),
 });
 
@@ -28,5 +29,6 @@ export const updateProductValidator = Joi.object({
   discount: Joi.number().min(0).max(100),
   category: Joi.string(),
   image: Joi.string(),
+  images: Joi.array().items(Joi.string()),
   stock: Joi.number().min(0).optional(),
 });

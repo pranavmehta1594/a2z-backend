@@ -9,6 +9,7 @@ import roleMiddleware from '../middlewares/role.middleware';
 import validateRequest from '../middlewares/validate.middleware';
 import { createProductValidator, updateProductValidator } from '../validators/product.validator';
 import { ROLES } from '../config/constants';
+import { uploadProductImages } from '../middlewares/upload.middleware';
 
 const router = Router();
 
@@ -16,6 +17,7 @@ router.post(
   '/',
   authMiddleware,
   roleMiddleware(ROLES.ADMIN),
+  uploadProductImages,
   validateRequest(createProductValidator, 'body'),
   ProductController.createProduct
 );
@@ -26,6 +28,7 @@ router.put(
   '/:id',
   authMiddleware,
   roleMiddleware(ROLES.ADMIN),
+  uploadProductImages,
   validateRequest(updateProductValidator, 'body'),
   ProductController.updateProduct
 );

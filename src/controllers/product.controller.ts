@@ -13,6 +13,9 @@ interface ProductRequest extends AuthRequest, ValidatedRequest {}
 
 class ProductController {
   static createProduct = asyncHandler(async (req: ProductRequest, res: Response) => {
+    const files = req.files as { [fieldname: string]: Express.Multer.File[] } | undefined;
+    if (files?.image?.[0]) req.validated.image = files.image[0].path;
+    if (files?.images?.length) req.validated.images = files.images.map((f) => f.path);
     const product = await ProductService.createProduct(req.validated);
     successResponse(res, 'Product created successfully', product, 201);
   });
@@ -30,6 +33,9 @@ class ProductController {
   });
 
   static updateProduct = asyncHandler(async (req: ProductRequest, res: Response) => {
+    const files = req.files as { [fieldname: string]: Express.Multer.File[] } | undefined;
+    if (files?.image?.[0]) req.validated.image = files.image[0].path;
+    if (files?.images?.length) req.validated.images = files.images.map((f) => f.path);
     const product = await ProductService.updateProduct(req.params.id, req.validated);
     successResponse(res, 'Product updated successfully', product);
   });

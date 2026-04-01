@@ -25,6 +25,7 @@ const categorySchema = new Schema<ICategory>(
     category_id: {
       type: Number,
       unique: true,
+      
     },
     description: {
       type: String,
@@ -44,7 +45,7 @@ const categorySchema = new Schema<ICategory>(
   { timestamps: true }
 );
 
-import Counter from './counter.model';
+import Counter from '../../models/counter.model';
 
 categorySchema.pre('save', async function (next) {
   if (!this.isNew) {

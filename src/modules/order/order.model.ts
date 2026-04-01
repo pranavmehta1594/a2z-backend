@@ -3,7 +3,7 @@
  */
 
 import mongoose, { Document, Schema } from 'mongoose';
-import { ORDER_STATUS, PAYMENT_STATUS, type OrderStatus, type PaymentStatus } from '../config/constants';
+import { ORDER_STATUS, PAYMENT_STATUS, type OrderStatus, type PaymentStatus } from '../../config/constants';
 
 export interface IOrderItem {
   product?: mongoose.Types.ObjectId;

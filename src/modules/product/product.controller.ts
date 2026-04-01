@@ -3,11 +3,11 @@
  */
 
 import { Response } from 'express';
-import ProductService from '../services/product.service';
-import asyncHandler from '../utils/asyncHandler';
-import { successResponse } from '../utils/apiResponse';
-import { AuthRequest } from '../middlewares/auth.middleware';
-import { ValidatedRequest } from '../middlewares/validate.middleware';
+import ProductService from './product.service';
+import asyncHandler from '../../utils/asyncHandler';
+import { successResponse } from '../../utils/apiResponse';
+import { AuthRequest } from '../../middlewares/auth.middleware';
+import { ValidatedRequest } from '../../middlewares/validate.middleware';
 
 interface ProductRequest extends AuthRequest, ValidatedRequest {}
 

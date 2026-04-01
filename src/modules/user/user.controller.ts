@@ -3,11 +3,11 @@
  */
 
 import { Response } from 'express';
-import UserService from '../services/user.service';
-import asyncHandler from '../utils/asyncHandler';
-import { successResponse } from '../utils/apiResponse';
-import { AuthRequest } from '../middlewares/auth.middleware';
-import { ValidatedRequest } from '../middlewares/validate.middleware';
+import UserService from './user.service';
+import asyncHandler from '../../utils/asyncHandler';
+import { successResponse } from '../../utils/apiResponse';
+import { AuthRequest } from '../../middlewares/auth.middleware';
+import { ValidatedRequest } from '../../middlewares/validate.middleware';
 
 interface UserRequest extends AuthRequest, ValidatedRequest {}
 

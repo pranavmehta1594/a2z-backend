@@ -3,16 +3,17 @@
  */
 
 import { Response } from 'express';
-import Category from '../models/category.model';
-import asyncHandler from '../utils/asyncHandler';
-import { successResponse, errorResponse } from '../utils/apiResponse';
-import { AuthRequest } from '../middlewares/auth.middleware';
-import { ValidatedRequest } from '../middlewares/validate.middleware';
+import Category from './category.model';
+import asyncHandler from '../../utils/asyncHandler';
+import { successResponse, errorResponse } from '../../utils/apiResponse';
+import { AuthRequest } from '../../middlewares/auth.middleware';
+import { ValidatedRequest } from '../../middlewares/validate.middleware';
 
 interface CategoryRequest extends AuthRequest, ValidatedRequest {}
 
 class CategoryController {
   static createCategory = asyncHandler(async (req: CategoryRequest, res: Response) => {
+    
     const { name, description, image } = req.body;
     const slug = name.toLowerCase().replace(/\s+/g, '-');
 

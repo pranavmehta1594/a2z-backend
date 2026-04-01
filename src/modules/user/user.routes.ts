@@ -3,12 +3,12 @@
  */
 
 import { Router } from 'express';
-import UserController from '../controllers/user.controller';
-import authMiddleware from '../middlewares/auth.middleware';
-import roleMiddleware from '../middlewares/role.middleware';
-import validateRequest from '../middlewares/validate.middleware';
-import { updateProfileValidator, changePasswordValidator } from '../validators/user.validator';
-import { ROLES } from '../config/constants';
+import UserController from './user.controller';
+import authMiddleware from '../../middlewares/auth.middleware';
+import roleMiddleware from '../../middlewares/role.middleware';
+import validateRequest from '../../middlewares/validate.middleware';
+import { updateProfileValidator, changePasswordValidator } from './user.validator';
+import { ROLES } from '../../config/constants';
 
 const router = Router();
 

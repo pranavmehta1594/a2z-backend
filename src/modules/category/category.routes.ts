@@ -3,10 +3,10 @@
  */
 
 import { Router } from 'express';
-import CategoryController from '../controllers/category.controller';
-import authMiddleware from '../middlewares/auth.middleware';
-import roleMiddleware from '../middlewares/role.middleware';
-import { ROLES } from '../config/constants';
+import CategoryController from './category.controller';
+import authMiddleware from '../../middlewares/auth.middleware';
+import roleMiddleware from '../../middlewares/role.middleware';
+import { ROLES } from '../../config/constants';
 
 const router = Router();
 

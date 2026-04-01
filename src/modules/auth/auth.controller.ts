@@ -1,12 +1,8 @@
-/**
- * Authentication Controller
- */
-
 import { Response } from 'express';
-import AuthService from '../services/auth.service';
-import asyncHandler from '../utils/asyncHandler';
-import { successResponse } from '../utils/apiResponse';
-import { ValidatedRequest } from '../middlewares/validate.middleware';
+import AuthService from './auth.service';
+import asyncHandler from '../../utils/asyncHandler';
+import { successResponse } from '../../utils/apiResponse';
+import { ValidatedRequest } from '../../middlewares/validate.middleware';
 
 class AuthController {
   static register = asyncHandler(async (req: ValidatedRequest, res: Response) => {

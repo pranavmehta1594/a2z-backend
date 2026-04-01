@@ -3,13 +3,13 @@
  */
 
 import { Router } from 'express';
-import ProductController from '../controllers/product.controller';
-import authMiddleware from '../middlewares/auth.middleware';
-import roleMiddleware from '../middlewares/role.middleware';
-import validateRequest from '../middlewares/validate.middleware';
-import { createProductValidator, updateProductValidator } from '../validators/product.validator';
-import { ROLES } from '../config/constants';
-import { uploadProductImages } from '../middlewares/upload.middleware';
+import ProductController from './product.controller';
+import authMiddleware from '../../middlewares/auth.middleware';
+import roleMiddleware from '../../middlewares/role.middleware';
+import validateRequest from '../../middlewares/validate.middleware';
+import { createProductValidator, updateProductValidator } from './product.validator';
+import { ROLES } from '../../config/constants';
+import { uploadProductImages } from '../../middlewares/upload.middleware';
 
 const router = Router();
 

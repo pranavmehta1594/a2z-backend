@@ -4,8 +4,8 @@
  */
 
 import logger from '../utils/logger';
-import { IUser } from '../models/user.model';
-import { IOrder } from '../models/order.model';
+import { IUser } from '../modules/user/user.model';
+import { IOrder } from '../modules/order/order.model';
 
 interface EmailJobResponse {
   success: boolean;

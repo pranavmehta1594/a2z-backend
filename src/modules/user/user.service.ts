@@ -4,8 +4,8 @@
  */
 
 import bcrypt from 'bcryptjs';
-import User, { IUser } from '../models/user.model';
-import config from '../config/env';
+import User, { IUser } from './user.model';
+import config from '../../config/env';
 
 interface PaginationResult {
   users: IUser[];

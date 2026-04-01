@@ -9,11 +9,11 @@ import errorMiddleware from './middlewares/error.middleware';
 import config from './config/env';
 
 // Import routes
-import authRoutes from './routes/auth.routes';
-import userRoutes from './routes/user.routes';
-import productRoutes from './routes/product.routes';
-import categoryRoutes from './routes/category.routes';
-import orderRoutes from './routes/order.routes';
+import authRoutes from './modules/auth/auth.routes';
+import userRoutes from './modules/user/user.routes';
+import productRoutes from './modules/product/product.routes';
+import categoryRoutes from './modules/category/category.routes';
+import orderRoutes from './modules/order/order.routes';
 
 const app = express();
 

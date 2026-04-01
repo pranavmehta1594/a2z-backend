@@ -4,9 +4,9 @@
  */
 
 import bcrypt from 'bcryptjs';
-import User, { IUser } from '../models/user.model';
-import { generateTokens, type TokenPayload } from '../utils/generateToken';
-import config from '../config/env';
+import User, { IUser } from '../user/user.model';
+import { generateTokens, type TokenPayload } from '../../utils/generateToken';
+import config from '../../config/env';
 
 interface RegisterData {
   name: string;

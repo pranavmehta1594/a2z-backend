@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
-import Product, { IProduct } from '../models/product.model';
-import Category from '../models/category.model';
+import Product, { IProduct } from './product.model';
+import Category from '../category/category.model';
 
 interface PaginationResult {
   products: IProduct[];

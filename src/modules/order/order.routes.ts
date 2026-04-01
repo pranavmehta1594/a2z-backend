@@ -3,10 +3,10 @@
  */
 
 import { Router } from 'express';
-import OrderController from '../controllers/order.controller';
-import authMiddleware from '../middlewares/auth.middleware';
-import roleMiddleware from '../middlewares/role.middleware';
-import { ROLES } from '../config/constants';
+import OrderController from './order.controller';
+import authMiddleware from '../../middlewares/auth.middleware';
+import roleMiddleware from '../../middlewares/role.middleware';
+import { ROLES } from '../../config/constants';
 
 const router = Router();
 

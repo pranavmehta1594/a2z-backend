@@ -3,7 +3,7 @@
  */
 
 import mongoose, { Document, Schema } from 'mongoose';
-import { ROLES, type Role } from '../config/constants';
+import { ROLES, type Role } from '../../config/constants';
 
 export interface IAddress {
   street?: string;

@@ -3,7 +3,7 @@
  */
 
 import mongoose, { Document, Schema } from 'mongoose';
-import { PRODUCT_STATUS, type ProductStatus } from '../config/constants';
+import { PRODUCT_STATUS, type ProductStatus } from '../../config/constants';
 
 export interface IReview {
   rating: number;

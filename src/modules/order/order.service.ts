@@ -3,7 +3,7 @@
  * Business logic for order management
  */
 
-import Order, { IOrder } from '../models/order.model';
+import Order, { IOrder } from './order.model';
 
 interface PaginationResult {
   orders: IOrder[];

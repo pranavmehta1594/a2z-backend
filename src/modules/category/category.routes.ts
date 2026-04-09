@@ -10,10 +10,11 @@ import { ROLES } from '../../config/constants';
 
 const router = Router();
 
+router.use(authMiddleware);
+router.get('/', roleMiddleware(ROLES.ADMIN), CategoryController.getAllCategories);
 router.post('/', authMiddleware, roleMiddleware(ROLES.ADMIN), CategoryController.createCategory);
-router.get('/', CategoryController.getAllCategories);
 router.get('/:id', CategoryController.getCategoryById);
-router.put('/:id', authMiddleware, roleMiddleware(ROLES.ADMIN), CategoryController.updateCategory);
-router.delete('/:id', authMiddleware, roleMiddleware(ROLES.ADMIN), CategoryController.deleteCategory);
+router.put('/:id',  roleMiddleware(ROLES.ADMIN), CategoryController.updateCategory);
+router.delete('/:id', roleMiddleware(ROLES.ADMIN), CategoryController.deleteCategory);
 
 export default router;

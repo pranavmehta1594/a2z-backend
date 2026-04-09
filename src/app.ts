@@ -9,11 +9,9 @@ import errorMiddleware from './middlewares/error.middleware';
 import config from './config/env';
 
 // Import routes
-import authRoutes from './modules/auth/auth.routes';
-import userRoutes from './modules/user/user.routes';
-import productRoutes from './modules/product/product.routes';
-import categoryRoutes from './modules/category/category.routes';
-import orderRoutes from './modules/order/order.routes';
+import adminRoutes from './routes/admin.routes';
+import websiteRoutes from './routes/website.routes';
+
 
 const app = express();
 
@@ -37,11 +35,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('combined'));
 
 // Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/users', userRoutes);
-app.use('/api/products', productRoutes);
-app.use('/api/categories', categoryRoutes);
-app.use('/api/orders', orderRoutes);
+app.use('/api/admin', adminRoutes);
+app.use('/api/website', websiteRoutes);
 
 // Health check
 app.get('/api/health', (_req: Request, res: Response) => {

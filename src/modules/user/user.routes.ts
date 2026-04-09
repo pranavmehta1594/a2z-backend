@@ -1,7 +1,3 @@
-/**
- * User Routes
- */
-
 import { Router } from 'express';
 import UserController from './user.controller';
 import authMiddleware from '../../middlewares/auth.middleware';
